@@ -1,0 +1,2 @@
+@props(['title','description','icon'=>'network','href'=>null,'action'=>null])
+<div {{ $attributes->class('empty-panel') }}><span class="empty-icon"><x-icon :name="$icon" /></span><h3>{{ $title }}</h3><p>{{ $description }}</p>@if($href && $action)<a class="button mt-4" href="{{ $href }}"><x-icon name="plus" />{{ $action }}</a>@endif</div>

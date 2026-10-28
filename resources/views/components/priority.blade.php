@@ -1,0 +1,2 @@
+@props(['level'])
+<span @class(['badge', 'priority-critical' => $level === 'critical', 'priority-high' => $level === 'high', 'priority-medium' => $level === 'medium', 'priority-low' => $level === 'low'])>{{ ucfirst($level ?? 'Unranked') }}</span>

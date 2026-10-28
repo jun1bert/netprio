@@ -1,0 +1,2 @@
+@props(['label','value','detail'=>null,'icon'=>'grid','href'=>null])
+<div class="stat-card"><div class="flex justify-between items-start gap-2"><p>{{ $label }}</p><x-icon :name="$icon" class="text-slate-400" /></div><strong>{{ $value }}</strong>@if($detail)<span>{{ $detail }}</span>@endif @if($href)<a href="{{ $href }}" class="stat-link" aria-label="{{ $label }}: view details"></a>@endif</div>

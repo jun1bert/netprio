@@ -1,0 +1,7 @@
+@props(['provenance','context'=>'Run data','unit'=>'ranked assets','compact'=>false])
+@if(($provenance['total'] ?? 0)>0)
+@if(in_array($provenance['kind'],['demo','mixed']))
+<div class="ui-alert ui-alert-warning" role="note" aria-label="Demonstration data warning"><x-icon name="alert" /><div class="min-w-0"><p class="font-semibold">{{ $provenance['kind']==='demo'?'DEMONSTRATION DATA':'MIXED DATA — includes demonstration records' }}</p><p class="mt-1">{{ $context }}: {{ $provenance['demo'] }} of {{ $provenance['total'] }} {{ $unit }} are synthetic examples. @if(!$compact){{ $provenance['kind']==='demo'?'Use these findings for testing and demonstrations.':'Review the demo labels before interpreting these findings as an institutional evaluation.' }}@endif</p>@if(!$compact && ($provenance['legacy'] ?? false))<p class="text-xs mt-2">Demo markers were detected in the preserved legacy records; original provenance flags were not stored.</p>@endif</div></div>
+@elseif($provenance['kind']==='legacy')<p class="text-xs text-slate-500">{{ $context }}: no demo markers detected. This older snapshot did not record explicit provenance flags.</p>
+@else<p class="text-xs text-slate-500">{{ $context }}: no records flagged as demonstration data.</p>@endif
+@endif

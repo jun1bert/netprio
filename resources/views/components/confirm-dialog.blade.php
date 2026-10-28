@@ -1,0 +1,3 @@
+<dialog id="action-confirmation" class="confirmation-dialog" aria-labelledby="confirmation-title" aria-describedby="confirmation-message">
+<div class="p-6"><span class="confirmation-icon"><x-icon name="alert" /></span><h2 id="confirmation-title" class="text-lg font-semibold text-slate-900 mt-4">Confirm this action</h2><p id="confirmation-message" class="text-sm text-slate-600 mt-2 leading-relaxed"></p><div class="flex flex-wrap justify-end gap-3 mt-6"><button type="button" class="button-secondary" data-confirm-cancel autofocus>Cancel</button><button type="button" class="button-danger" data-confirm-proceed>Confirm action</button></div></div>
+</dialog>

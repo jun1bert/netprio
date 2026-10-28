@@ -1,0 +1,6 @@
+<x-panel title="Institution settings"><form class="panel space-y-5 max-w-3xl" method="post" action="{{ route('settings.update') }}">@csrf @method('PUT')
+<x-field name="institution_name" label="Institution / report name *" :value="$settings['institution_name']" required />
+<x-field name="reassessment_months" label="Reassessment interval (months) *" type="number" :value="$settings['reassessment_months']" min="1" max="120" required />
+<div class="notice">Priority thresholds are institutional policy, not scientifically validated boundaries. Scores run from 0 to 100. Thresholds must be ordered critical &gt; high &gt; medium ≥ 0. Historical runs retain the thresholds used when they were completed.</div>
+<div class="form-grid">@foreach(['critical','high','medium'] as $level)<x-field :name="$level" :label="ucfirst($level).' minimum score *'" type="number" :value="$settings['thresholds'][$level]" min="0" max="100" step="0.01" required />@endforeach</div><p class="text-sm text-slate-500">Scores below the medium threshold receive Low priority.</p><button class="button">Save settings</button>
+</form></x-panel>

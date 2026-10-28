@@ -1,0 +1,4 @@
+@props(['label','value','max'=>100,'suffix'=>'%','tone'=>'blue'])
+@php($percentage = $max > 0 ? max(0, min(100, $value / $max * 100)) : 0)
+@php($suffix = trim($suffix) === 'assets' && (float)$value === 1.0 ? ' asset' : $suffix)
+<div class="chart-row" role="img" tabindex="0" aria-label="{{ $label }}: {{ is_float($value) ? number_format($value, 2) : $value }}{{ $suffix }}"><div class="flex justify-between gap-4 mb-2 text-sm"><span>{{ $label }}</span><strong class="tabular-nums text-slate-800">{{ is_float($value) ? number_format($value, 2) : $value }}{{ $suffix }}</strong></div><div class="chart-track"><span @class(['chart-fill','chart-critical'=>$tone==='critical','chart-high'=>$tone==='high','chart-medium'=>$tone==='medium','chart-low'=>$tone==='low']) style="width: {{ $percentage }}%"></span></div><span class="chart-tooltip" role="tooltip">{{ $label }} · {{ is_float($value) ? number_format($value, 2) : $value }}{{ $suffix }}</span></div>

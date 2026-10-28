@@ -1,0 +1,2 @@
+@props(['status'])
+<span @class(['badge','status-positive'=>in_array($status,['active','completed'],true),'status-muted'=>in_array($status,['inactive','retired','draft'],true),'status-warning'=>$status==='under_maintenance'])><span class="badge-dot" aria-hidden="true"></span>{{ ucwords(str_replace('_',' ',$status ?? 'Unknown')) }}</span>
